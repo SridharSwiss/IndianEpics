@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>రామాయణం - బాలకాండ</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Telugu:wght@300;400;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Noto Sans Telugu', sans-serif;
+            background: linear-gradient(135deg, #ff9a56, #ff6b6b, #4ecdc4, #45b7d1);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            min-height: 100vh;
+        }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Navigation Bar */
+        .nav-bar {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 15px 30px;
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .nav-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #2c3e50;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .nav-link {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            color: #2c3e50;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            background: rgba(255, 255, 255, 0.4);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Main Content */
+        .main-content {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border-radius: 30px;
+            padding: 40px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .kanda-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .kanda-title {
+            font-size: 48px;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.1);
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .kanda-subtitle {
+            font-size: 20px;
+            color: #34495e;
+            font-weight: 400;
+        }
+        
+        /* Story Sections */
+        .story-section {
+            margin-bottom: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .story-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .section-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .section-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            font-size: 24px;
+            color: white;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .section-title {
+            font-size: 28px;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        
+        .section-content {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #2c3e50;
+            text-align: justify;
+        }
+        
+        /* Interactive Elements */
+        .character-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .character-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(15px);
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .character-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+        
+        .character-name {
+            font-size: 20px;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        
+        .character-description {
+            font-size: 14px;
+            color: #34495e;
+            line-height: 1.6;
+        }
+        
+        /* Timeline */
+        .timeline {
+            position: relative;
+            margin: 40px 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(to bottom, #ff6b6b, #4ecdc4);
+            transform: translateX(-50%);
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin: 30px 0;
+            display: flex;
+            align-items: center;
+        }
+        
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+        
+        .timeline-content {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(15px);
+            padding: 20px;
+            border-radius: 15px;
+            width: 45%;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .timeline-dot {
+            width: 20px;
+            height: 20px;
+            background: #ff6b6b;
+            border-radius: 50%;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .timeline-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        
+        .timeline-desc {
+            font-size: 14px;
+            color: #34495e;
+            line-height: 1.6;
+        }
+        
+        /* Source Attribution */
+        .source-info {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 20px;
+            margin-top: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .source-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+        
+        .source-text {
+            font-size: 14px;
+            color: #34495e;
+            line-height: 1.6;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-bar {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .kanda-title {
+                font-size: 36px;
+            }
+            
+            .character-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .timeline::before {
+                left: 20px;
+            }
+            
+            .timeline-item {
+                flex-direction: row !important;
+                padding-left: 40px;
+            }
+            
+            .timeline-content {
+                width: 100%;
+            }
+            
+            .timeline-dot {
+                left: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Navigation Bar -->
+        <nav class="nav-bar">
+            <div class="nav-title">శ్రీమద్వాల్మీకి రామాయణం</div>
+            <div class="nav-links">
+                <a href="#" class="nav-link active">బాలకాండ</a>
+                <a href="#" class="nav-link">అయోధ్యాకాండ</a>
+                <a href="#" class="nav-link">అరణ్యకాండ</a>
+                <a href="#" class="nav-link">కిష్కింధాకాండ</a>
+                <a href="#" class="nav-link">సుందరకాండ</a>
+                <a href="#" class="nav-link">యుద్ధకాండ</a>
+                <a href="#" class="nav-link">ఉత్తరకాండ</a>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="kanda-header">
+                <h1 class="kanda-title">బాలకాండ</h1>
+                <p class="kanda-subtitle">శ్రీరాముని బాల్యకాలం మరియు జన్మ చరిత్ర</p>
+            </header>
+
+            <!-- వాల్మీకి మహర్షి కథ -->
+            <section class="story-section">
+                <div class="section-header">
+                    <div class="section-icon">🎭</div>
+                    <h2 class="section-title">వాల్మీకి మహర్షి కథ</h2>
+                </div>
+                <div class="section-content">
+                    మహర్షి వాల్మీకి నారద మునిని కలిసి "లోకంలో ధర్మాత్మ ఎవరైనా ఉన్నారా?" అని అడిగారు. నారదుడు "అవును! కోసలరాజ దశరథ కుమారుడు రామచంద్రుడు అన్ని గుణాలతో కూడిన పురుషోత్తముడు" అని చెప్పాడు. తరువాత వాల్మీకి ఒక వేటగాడు క్రౌంచ పక్షి జంటలో మగ పక్షిని చంపడం చూసి దుఃఖించి మొట్టమొదటి శ్లోకాన్ని రచించారు. బ్రహ్మదేవుడు కనిపించి రామకథను కావ్యరూపంలో రచించమని ఆజ్ఞాపించారు.
+                </div>
+            </section>
+
+            <!-- అయోధ్యా వర్ణన -->
+            <section class="story-section">
+                <div class="section-header">
+                    <div class="section-icon">🏰</div>
+                    <h2 class="section-title">అయోధ్యా నగర వైభవం</h2>
+                </div>
+                <div class="section-content">
+                    సరయూ నది తీరాన ఉన్న అయోధ్యా నగరం అత్యంత వైభవంగా ఉండేది. దశరథ మహారాజు పాలనలో ప్రజలందరూ సుఖంగా జీవించేవారు. నగరంలో అందమైన ప్రాసాదాలు, విశాలమైన రాజమార్గాలు, అనేక దేవాలయాలు ఉండేవి. ప్రజలంతా ధర్మబద్ధంగా జీవించేవారు.
+                </div>
+            </section>
+
+            <!-- రాజా దశరథుని పరిచయం -->
+            <section class="story-section">
+                <div class="section-header">
+                    <div class="section-icon">👑</div>
+                    <h2 class="section-title">రాజా దశరథుని వైభవం</h2>
+                </div>
+                <div class="section-content">
+                    ఇక్ష్వాకు వంశంలో జన్మించిన దశరథుడు మహాన్ రాజు. అతనికి మూడు మంది రాణులు - కౌసల్య, కైకేయి, సుమిత్ర. అనేక సంవత్సరాలు గడిచినా వారికి సంతానం లేకపోవడంతో దశరథుడు చింతలో ఉండేవాడు. వశిష్ఠ మహర్షి సలహా మేరకు అశ్వమేధ యాగం చేయాలని నిర్ణయించుకున్నాడు.
+                </div>
+
+                <div class="character-grid">
+                    <div class="character-card">
+                        <div class="character-name">రాణి కౌసల్య</div>
+                        <div class="character-description">దశరథుని పట్టమహిషి, రాముని తల్లి, ధర్మజ్ఞురాలు</div>
+                    </div>
+                    <div class="character-card">
+                        <div class="character-name">రాణి కైకేయి</div>
+                        <div class="character-description">కైకేయ రాజ కుమార్తె, భరతుని తల్లి, రణనైపుణ్యం గలది</div>
+                    </div>
+                    <div class="character-card">
+                        <div class="character-name">రాణి సుమిత్ర</div>
+                        <div class="character-description">లక్ష్మణ శత్రుఘ్నుల తల్లి, మృదు స్వభావం గలది</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- పుత్రకామేష్టి యాగం -->
+            <section class="story-section">
+                <div class="section-header">
+                    <div class="section-icon">🔥</div>
+                    <h2 class="section-title">పుత్రకామేష్టి యాగం</h2>
+                </div>
+                <div class="section-content">
+                    ఋష్యశృంగ మహర్షి యాగాన్ని నిర్వహించారు. యాగం పూర్తయ్యాక అగ్నిదేవుడు పాయసంతో కూడిన పాత్రను దశరథునికి ఇచ్చాడు. దశరథుడు ఆ పాయసాన్ని మూడు రాణులకు పంచి ఇచ్చాడు - కౌసల్యకు సగం, కైకేయికి ఒక వంతు, సుమిత్రకు మిగిలిన భాగం రెండు సార్లు. దేవతల అంశలతో నాలుగు పుత్రులు జన్మించారు.
+                </div>
+            </section>
+
+            <!-- రామాది పుత్రుల జన్మ -->
+            <section class="story-section">
+                <div class="section-header">
+                    <div class="section-icon">👶</div>
+                    <h2 class="section-title">రామాది పుత్రుల జన్మ</h2>
+                </div>
+                <div class="section-content">
+                    చైత్ర మాసం నవమి తిథిలో, పుনర్వసు నక్షత్రంలో కౌసల్యకు విష్ణు అంశతో రాముడు జన్మించాడు. కైకేయికి భరతుడు, సుమిత్రకు లక్ష్మణ శత్రుఘ్నులు జన్మించారు. నలుగురు పుత్రులూ దివ్య తేజస్సుతో, అందంతో కూడి ఉన్నారు.
+                </div>
+
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-title">రాముని జన్మ</div>
+                            <div class="timeline-desc">కౌసల్య దేవికి విష్ణు అంశతో రాముడు జన్మించాడు</div>
+                        </div>
+                        <div class="timeline-dot"></div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-title">భరతుని జన్మ</div>
+                            <div class="timeline-desc">కైకేయి దేవికి విష్ణు అంశతో భరతుడు జన్మించాడు</div>
+                        </div>
+                        <div class="timeline-dot"></div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-title">లక్ష్మణ శత్రుఘ్నుల జన్మ</div>
+                            <div class="timeline-desc">సుమిత్ర దేవికి విష్ణు అంశతో కవలలు జన్మించారు</div>
+                        </div>
+                        <div class="timeline-dot"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- విశ్వామిత్ర రాకడ -->
+            <section class="story-section">
+                <div class="section-header">
+                    <div class="section-icon">🧙‍♂️</div>
+                    <h2 class="section-title">విశ్వామిత్ర మహర్షి రాకడ</h2>
+                </div>
+                <div class="section-content">
+                    కుమారులు యవ్వనంలో అడుగుపెట్టినప్పుడు విశ్వామిత్ర మహర్షి అయోధ్యకు వచ్చారు. అతడు యాగ రక్షణకు రామ లక్ష్మణులను తీసుకెళ్ళాలని దశరథుని అడిగాడు. మొదట్లో దశరథుడు వెనకాడినా, వశిష్ఠ మహర్షి సలహా మేరకు రామ లక్ష్మణులను విశ్వామిత్రతో పంపాడు.
+                </div>
+            </section>
+
+            <!-- తాటకా వధ -->
+            <section class="story-section">
+                <div class="section-header">
+                    <div class="section-icon">⚔️</div>
+                    <h2 class="section-title">తాటకా రాక్షసి వధ</h2>
+                </div>
+                <div class="section-content">
+                    రామ లక్ష్మణులు విశ్వామిత్రతో ప్రయాణిస్తూ దండకారణ్యంలో తాటకా అనే రాక్షసిని ఎదుర్కొన్నారు. విశ్వామిత్ర ఆజ్ఞ మేరకు రాముడు మొట్టమొదటిసారిగా తన అస్త్రాలను ప్రయోగించి తాటకను వధించాడు. ఇది రాముని మొట్టమొదటి యుద్ధ విజయం.
+                </div>
+            </section>
+
+            <!-- సీత స్వయంవరం -->
+            <section class="story-section">
+                <div class="section-header">
+                    <div class="section-icon">💒</div>
+                    <h2 class="section-title">సీత స్వయంవరం</h2>
+                </div>
+                <div class="section-content">
+                    మిథిలకు చేరుకున్న రామ లక్ష్మణులు అక్కడ జనకుని కుమార్తె సీత స్వయంవరంలో పాల్గొన్నారు. శివధనస్సును ఎత్తి, వంచి, తంతువేయగలిగిన వాడికి సీతను ఇస్తానని జనకుడు ప్రకటన చేశాడు. అనేక మంది రాజులు ప్రయత్నించి విఫలమైనారు. రాముడు అప్రయాసంగా ధనస్సును ఎత్తి వంచేసరికి అది విరిగిపోయింది. అందువల్ల రాముడు సీతను వివాహం చేసుకున్నాడు.
+                </div>
+            </section>
+
+            <!-- గురు దక్షిణ -->
+            <section class="story-section">
+                <div class="section-header">
+                    <div class="section-icon">🙏</div>
+                    <h2 class="section-title">గురు దక్షిణ మరియు అయోధ్య వాపసు</h2>
+                </div>
+                <div class="section-content">
+                    విశ్వామిత్ర మహర్షి రామ లక్ష్మణులకు అనేక అస్త్ర శస్త్రాలను ఉపదేశించారు. యాగ రక్షణ పూర్తయ్యాక, సీత కల్యాణం జరిపించిన తరువాత, గురు దక్షిణగా రామ లక్ష్మణులు విశ్వామిత్రని ప్రణమించి అయోధ్యకు తిరిగి వచ్చారు. దశరథుడు పుత్రుల విజయాలను చూసి అత్యంత సంతోషించాడు.
+                </div>
+            </section>
+
+            <!-- మూల గ్రంథ సమాచారం -->
+            <div class="source-info">
+                <div class="source-title">మూల గ్రంథ సమాచారం</div>
+                <div class="source-text">
+                    <strong>గ్రంథం:</strong> శ్రీమద్వాల్మీకి రామాయణం - బాలకాండ<br>
+                    <strong>రచయిత:</strong> మహర్షి వాల్మీకి<br>
+                    <strong>సర్గాలు:</strong> ౭౬ సర్గాలు<br>
+                    <strong>ప్రధాన ఘటనలు:</strong> వాల్మీకి కవిత్వ జన్మ, రామాది పుత్రుల జన్మ, సీత కల్యాణం<br>
+                    <strong>ప్రామాణిక మూలాలు:</strong> వాల్మీకి రామాయణం (గీతా ప్రెస్, గోరఖ్‌పూర్), శ్రీమద్రామాయణం (TTD పబ్లికేషన్)
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Add smooth scrolling and interactive elements
+        document.addEventListener('DOMContentLoaded', function() {
+            // Character cards interaction
+            const characterCards = document.querySelectorAll('.character-card');
+            characterCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    this.style.transform = 'scale(1.1)';
+                    setTimeout(() => {
+                        this.style.transform = 'scale(1.05)';
+                    }, 200);
+                });
+            });
+
+            // Timeline animation on scroll
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all story sections
+            const storySections = document.querySelectorAll('.story-section');
+            storySections.forEach(section => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(30px)';
+                section.style.transition = 'all 0.6s ease';
+                observer.observe(section);
+            });
+
+            // Navigation link highlighting
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
