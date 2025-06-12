@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>రామాయణం - అరణ్యకాండ </title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Telugu:wght@300;400;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Noto Sans Telugu', sans-serif;
+            background: linear-gradient(135deg, #667eea, #764ba2, #f093fb, #f5576c);
+            background-size: 400% 400%;
+            animation: gradientShift 20s ease infinite;
+            min-height: 100vh;
+        }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            25% { background-position: 100% 50%; }
+            50% { background-position: 100% 100%; }
+            75% { background-position: 0% 100%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Navigation Bar */
+        .nav-bar {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(25px);
+            border-radius: 25px;
+            padding: 20px 35px;
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+        }
+        
+        .nav-title {
+            font-size: 26px;
+            font-weight: 700;
+            color: #2c3e50;
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.15);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .nav-link {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            padding: 12px 24px;
+            border-radius: 30px;
+            color: #2c3e50;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            background: rgba(255, 255, 255, 0.45);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+        }
+        
+        /* Main Content */
+        .main-content {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(25px);
+            border-radius: 35px;
+            padding: 45px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+        }
+        
+        .kanda-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .kanda-title {
+            font-size: 52px;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.15);
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .kanda-subtitle {
+            font-size: 22px;
+            color: #34495e;
+            font-weight: 400;
+            font-style: italic;
+        }
+        
+        /* Story Sections */
+        .story-section {
+            margin-bottom: 45px;
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(15px);
+            border-radius: 25px;
+            padding: 35px;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .story-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        
+        .story-section:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+        }
+        
+        .story-section:hover::before {
+            opacity: 1;
+        }
+        
+        .section-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+        
+        .section-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 25px;
+            font-size: 28px;
+            color: white;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        .section-title {
+            font-size: 32px;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        
+        .section-content {
+            font-size: 19px;
+            line-height: 1.9;
+            color: #2c3e50;
+            text-align: justify;
+        }
+        
+        /* Emotional Moments Highlight */
+        .emotional-highlight {
+            background: linear-gradient(135deg, rgba(246, 79, 89, 0.1), rgba(223, 52, 90, 0.1));
+            border-left: 5px solid #f64f59;
+            padding: 25px;
+            margin: 25px 0;
+            border-radius: 15px;
+            font-style: italic;
+            position: relative;
+        }
+        
+        .emotional-highlight::before {
+            content: '💔';
+            position: absolute;
+            top: -10px;
+            right: 20px;
+            font-size: 24px;
+            background: white;
+            padding: 5px 10px;
+            border-radius: 50%;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Character Grid */
+        .character-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 35px 0;
+        }
+        
+        .character-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 25px;
+            text-align: center;
+            transition: all 0.4s ease;
+            cursor: pointer;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .character-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.6s ease;
+        }
+        
+        .character-card:hover::before {
+            left: 100%;
+        }
+        
+        .character-card:hover {
+            transform: scale(1.08);
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.25);
+        }
+        
+        .character-name {
+            font-size: 22px;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+        
+        .character-role {
+            font-size: 16px;
+            color: #667eea;
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+        
+        .character-description {
+            font-size: 15px;
+            color: #34495e;
+            line-height: 1.7;
+        }
+        
+        /* Timeline Enhanced */
+        .timeline {
+            position: relative;
+            margin: 50px 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 6px;
+            background: linear-gradient(to bottom, #667eea, #764ba2, #f093fb, #f5576c);
+            transform: translateX(-50%);
+            border-radius: 3px;
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin: 40px 0;
+            display: flex;
+            align-items: center;
+        }
+        
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+        
+        .timeline-content {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            padding: 25px;
+            border-radius: 20px;
+            width: 45%;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            transition: all 0.3s ease;
+        }
+        
+        .timeline-content:hover {
+            transform: scale(1.02);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+        
+        .timeline-dot {
+            width: 25px;
+            height: 25px;
+            background: #667eea;
+            border-radius: 50%;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+            border: 4px solid white;
+        }
+        
+        .timeline-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 12px;
+        }
+        
+        .timeline-desc {
+            font-size: 15px;
+            color: #34495e;
+            line-height: 1.7;
+        }
+        
+        /* Dialogue Boxes */
+        .dialogue-box {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 25px;
+            margin: 25px 0;
+            border-left: 5px solid #667eea;
+            position: relative;
+            font-style: italic;
+        }
+        
+        .dialogue-speaker {
+            font-weight: 600;
+            color: #667eea;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        
+        .dialogue-text {
+            font-size: 17px;
+            color: #2c3e50;
+            line-height: 1.8;
+        }
+        
+        /* Moral Lesson Box */
+        .moral-lesson {
+            background: linear-gradient(135deg, rgba(76, 175, 80, 0.1), rgba(139, 195, 74, 0.1));
+            border: 2px solid rgba(76, 175, 80, 0.3);
+            border-radius: 20px;
+            padding: 30px;
+            margin: 30px 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .moral-lesson::before {
+            content: '🕉️';
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 30px;
+            background: white;
+            padding: 10px;
+            border-radius: 50%;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .moral-title {
+            font-size: 24px;
+            font-weight: 600;
+            color: #2e7d32;
+            margin-bottom: 15px;
+        }
+        
+        .moral-text {
+            font-size: 18px;
+            color: #2c3e50;
+            line-height: 1.8;
+            font-style: italic;
+        }
+        
+        /* Source Attribution */
+        .source-info {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 25px;
+            margin-top: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+        }
+        
+        .source-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+        
+        .source-text {
+            font-size: 15px;
+            color: #34495e;
+            line-height: 1.7;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-bar {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .kanda-title {
+                font-size: 40px;
+            }
+            
+            .character-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .timeline::before {
+                left: 30px;
+            }
+            
+            .timeline-item {
+                flex-direction: row !important;
+                padding-left: 60px;
+            }
+            
+            .timeline-content {
+                width: 100%;
+            }
+            
+            .timeline-dot {
+                left: 30px;
+            }
+            
+            .section-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 24px;
+            }
+            
+            .section-title {
+                font-size: 26px;
+            }
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Noto Sans Telugu', Arial, sans-serif;
+            line-height: 1.8;
+            background: linear-gradient(135deg, #8B4513 0%, #D2691E 25%, #228B22 50%, #FF8C00 75%, #DC143C 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
+        
+        .header {
+            background: linear-gradient(45deg, #8B0000, #DC143C);
+            color: white;
+            text-align: center;
+            padding: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 10px,
+                rgba(255, 255, 255, 0.1) 10px,
+                rgba(255, 255, 255, 0.1) 20px
+            );
+            animation: shimmer 3s linear infinite;
+        }
+        
+        @keyframes shimmer {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+        
+        .main-title {
+            font-size: 2.5em;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            z-index: 1;
+            position: relative;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            font-size: 1.2em;
+            opacity: 0.9;
+            z-index: 1;
+            position: relative;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .section {
+            margin-bottom: 35px;
+            padding: 25px;
+            border-radius: 15px;
+            background: linear-gradient(135deg, rgba(255, 248, 220, 0.8), rgba(255, 228, 196, 0.8));
+            border-left: 5px solid #8B4513;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+        }
+        
+        .section-title {
+            font-size: 1.6em;
+            font-weight: bold;
+            color: #8B0000;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #DC143C;
+            display: flex;
+            align-items: center;
+        }
+        
+        .section-title::before {
+            content: '🏹';
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
+        
+        .section-content {
+            color: #333;
+            font-size: 1.1em;
+            text-align: justify;
+        }
+        
+        .highlight {
+            background: linear-gradient(120deg, #FFD700 0%, #FFA500 100%);
+            padding: 3px 8px;
+            border-radius: 5px;
+            font-weight: bold;
+            color: #8B0000;
+        }
+        
+        .character-name {
+            color: #DC143C;
+            font-weight: bold;
+        }
+        
+        .conclusion {
+            background: linear-gradient(135deg, #228B22, #32CD32);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 30px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .conclusion-title {
+            font-size: 1.8em;
+            font-weight: bold;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .verse {
+            font-style: italic;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border-left: 4px solid #FFD700;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+                border-radius: 15px;
+            }
+            
+            .main-title {
+                font-size: 2em;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+            
+            .section {
+                padding: 20px;
+            }
+        }
+    </style>
+<body>
+    <div class="container">
+        <!-- Navigation Bar -->
+        <nav class="nav-bar">
+            <div class="nav-title">శ్రీమద్వాల్మీకి రామాయణం</div>
+            <div class="nav-links">
+                <a href="balakanda.html" class="nav-link">బాలకాండ</a>
+                <a href="ayodhyakanda.html" class="nav-link">అయోధ్యాకాండ</a>
+                <a href="aranyakanda.html" class="nav-link">అరణ్యకాండ</a>
+                <a href="kishkindhakanda.html" class="nav-link">కిష్కింధాకాండ</a>
+                <a href="sundarakanda.html" class="nav-link">సుందరకాండ</a>
+                <a href="yuddhakanda.html" class="nav-link">యుద్ధకాండ</a>
+                <a href="uttarakanda.html" class="nav-link">ఉత్తరకాండ</a>
+                <a href="ramayan.html" class="nav-link active">అన్ని పేజీలు</a>
+            </div>
+        </nav>
+
+    <div class="container">
+        <div class="header">
+            <h1 class="main-title">అరణ్యకాండం</h1>
+            <p class="subtitle">వాల్మీకి రామాయణం - మూడవ కాండ</p>
+        </div>
+        
+        <div class="content">
+            <div class="section">
+                <h2 class="section-title">వనవాస ప్రారంభం</h2>
+                <div class="section-content">
+                    <span class="character-name">రాముడు, సీత, లక్షమణుడు</span> అయోధ్య నుండి బయలుదేరి <span class="highlight">చిత్రకూట</span> పర్వతానికి చేరుకున్నారు. అక్కడ వారు <span class="character-name">భరద్వాజ మహర్షి</span>ని కలిసి ఆశీర్వాదాలు పొందారు. చిత్రకూటలో వారు ప్రశాంతంగా కాలం గడిపారు.
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title">అగస్త్య మహర్షితో భేటీ</h2>
+                <div class="section-content">
+                    <span class="character-name">అగస్త్య మహర్షి</span> రాముడికి దివ్యాస్త్రాలను ప్రదానం చేశారు. <span class="highlight">విష్ణు ధనుస్సు, అక్షయ తూణీరం</span> మరియు ఇతర అస్త్రశస్త్రాలను అందించారు. మహర్షి రాముడికి <span class="highlight">పంచవటి</span>లో నివసించమని సలహా ఇచ్చారు.
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title">పంచవటిలో నివాసం</h2>
+                <div class="section-content">
+                    పంచవటి అనే అందమైన స్థలంలో లక్షమణుడు ఒక అందమైన కుటీరం నిర్మించాడు. అక్కడ వారు సుఖంగా కాలం గడుపుతుండగా, <span class="character-name">శూర్పణఖ</span> అనే రాక్షసురాలు వచ్చింది.
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title">శూర్పణఖ వృత్తాంతం</h2>
+                <div class="section-content">
+                    <span class="character-name">శూర్పణఖ</span> రాముని చూసి మోహించుకుని అతనిని వివాహం చేసుకోవాలని అనుకుంది. రాముడు తనకు భార్య ఉందని చెప్పి లక్షమణుడి వైపు తిప్పాడు. లక్షమణుడు కూడా తను అన్న సేవకుడనని చెప్పాడు. కోపంతో శూర్పణఖ సీతపై దాడి చేయబోయింది. <span class="highlight">లక్షమణుడు ఆమె ముక్కు, చెవులు కోసాడు</span>.
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title">ఖర దూషణుల మృత్యువు</h2>
+                <div class="section-content">
+                    శూర్పణఖ తన సోదరులు <span class="character-name">ఖరుడు, దూషణుడు</span>లను రాముడిపై దాడికి పంపింది. వారు 14,000 రాక్షసులతో వచ్చారు. <span class="highlight">రాముడు ఒంటరిగా యుద్ధం చేసి</span> వారందరినీ వధించాడు. ఈ యుద్ధంలో రాముడి వీరత్వం ప్రకటమైంది.
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title">రావణుడి ప్రవేశం</h2>
+                <div class="section-content">
+                    శూర్పణఖ <span class="character-name">రావణుడి</span> వద్దకు వెళ్లి తన అవమానాన్ని వర్ణించింది. రావణుడు ప్రతీకారం తీర్చుకోవాలని నిర్ణయించుకున్నాడు. అతను <span class="character-name">మారీచుడి</span> సహాయం కోరాడు.
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title">మారీచుడి కుట్ర</h2>
+                <div class="section-content">
+                    <span class="character-name">మారీచుడు</span> <span class="highlight">స్వర్ణమృగ రూపం</span> ధరించి సీత ముందు కనిపించాడు. ఆ అందమైన జింకను చూసిన సీత దానిని పట్టుకోవాలని రాముడిని అభ్యర్థించింది. రాముడు లక్షమణుడికి సీతను కాపలా ఉంచమని చెప్పి ఆ జింకను వెంబడించాడు.
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title">సీతాపహరణం</h2>
+                <div class="section-content">
+                    మారీచుడు మృత్యు సమయంలో <span class="highlight">"హా సీతే! హా లక్షమణ!"</span> అని రాముడి స్వరంలో అరిచాడు. ఈ శబ్దం విని సీత లక్షమణుడిని రాముడి సహాయానికి పంపింది. లక్షమణుడు వెళ్లిన వెంటనే <span class="character-name">రావణుడు</span> సన్యాసి వేషంలో వచ్చి <span class="highlight">సీతను అపహరించాడు</span>.
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title">జటాయువు వీరమృత్యువు</h2>
+                <div class="section-content">
+                    <span class="character-name">జటాయువు</span> అనే గద్ద పక్షి రాజు సీతను రక్షించడానికి రావణుడితో యుద్ధం చేశాడు. రావణుడు జటాయువు రెక్కలను కోసి వేశాడు. <span class="highlight">జటాయువు భూమిపై పడి మృత్యువాత పడింది</span>, కానీ రాముడికి సీత ఎక్కడికి వెళ్లిందో చెప్పాడు.
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title">కబంధుడితో సంగమం</h2>
+                <div class="section-content">
+                    అన్వేషణలో రాముడు, లక్షమణుడు <span class="character-name">కబంధుడు</span> అనే రాక్షసుడిని కలిశారు. రాముడు అతనిని వధించడంతో అతను తన నిజ రూపాన్ని పొందాడు. అతను <span class="highlight">శబరి</span> అనే భక్తురాలిని కలవమని సలహా ఇచ్చాడు.
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title">శబరితో భేటీ</h2>
+                <div class="section-content">
+                    <span class="character-name">శబరి</span> అనే వృద్ధ భక్తురాలు రాముడిని గొప్ప భక్తితో స్వాగతించింది. ఆమె <span class="highlight">తాను రుచి చూసిన పండ్లను</span> రాముడికి సమర్పించింది. రాముడు ప్రేమతో వాటిని తీసుకున్నాడు. ఈ సంఘటన భక్తి మహత్వాన్ని తెలియజేస్తుంది.
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title">హనుమంతుడిని కలుసుకోవడం</h2>
+                <div class="section-content">
+                    రామలక్షమణులు <span class="character-name">సుగ్రీవుడి</span> దగ్గరకు వెళ్లే మార్గంలో <span class="character-name">హనుమంతుడు</span> వారిని కలిశాడు. అతను వారిని సుగ్రీవుడి వద్దకు తీసుకువెళ్లాడు. ఇక్కడ రాముడికి <span class="highlight">వానర సైన్యం యొక్క సహాయం</span> లభించడానికి మార్గం సుగమైంది.
+                </div>
+            </div>
+            
+            <div class="conclusion">
+                <div class="conclusion-title">అరణ్యకాండ సారాంశం</div>
+                <div class="section-content">
+                    అరణ్యకాండం మనకు <span class="highlight">ధర్మం, భక్తి, వీరత్వం</span> మరియు <span class="highlight">భార్యభర్తల ప్రేమ</span> యొక్క మహత్వాన్ని బోధిస్తుంది. రాముడి వీరత్వం, సీత యొక్క పవిత్రత, లక్షమణుడి అన్న భక్తి, మరియు హనుమంతుడి అనుభక్తి వంటి గుణాలు ఈ కాండంలో ప్రకాశిస్తాయి.
+                    
+                    <div class="verse">
+                        "రామో రాజమణిః సదా విజయతే రామం రమేశే భజే<br>
+                        రామేణాభిహతా నిశాచరచమూ రామాయ తస్మై నమః"
+                    </div>
+                    
+                    ఈ కాండం సీతాపహరణంతో ముగుస్తుంది, ఇది కిష్కింధాకాండంలో సుగ్రీవుడితో మిత్రత్వానికి దారితీస్తుంది.
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
