@@ -6,7 +6,345 @@
     <title>రామాయణం - సుందరకాండ</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Telugu:wght@300;400;600;700&display=swap');
+     
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
         
+        body {
+            font-family: 'Noto Sans Telugu', sans-serif;
+            background: linear-gradient(135deg, #ff9a56, #ff6b6b, #4ecdc4, #45b7d1);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            min-height: 100vh;
+        }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Navigation Bar */
+        .nav-bar {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 15px 30px;
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .nav-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #2c3e50;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .nav-link {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            color: #2c3e50;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            background: rgba(255, 255, 255, 0.4);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Main Content */
+        .main-content {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border-radius: 30px;
+            padding: 40px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .kanda-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .kanda-title {
+            font-size: 48px;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.1);
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .kanda-subtitle {
+            font-size: 20px;
+            color: #34495e;
+            font-weight: 400;
+            font-style: italic;
+        }
+
+        /* Journey Timeline */
+        .journey-timeline {
+            position: relative;
+            margin: 40px 0;
+        }
+
+        .timeline-line {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(to bottom, #ff6b6b, #4ecdc4, #45b7d1, #ff9a56);
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin: 60px 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .timeline-item:nth-child(odd) {
+            flex-direction: row;
+        }
+
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .timeline-content {
+            width: 45%;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .timeline-content:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform: translateX(-50%);
+            font-size: 20px;
+            color: white;
+            font-weight: bold;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            z-index: 2;
+        }
+
+        .content-title {
+            font-size: 22px;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .content-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            color: white;
+        }
+
+        .content-description {
+            font-size: 16px;
+            color: #2c3e50;
+            line-height: 1.6;
+            text-align: justify;
+        }
+
+        /* Special Styling for Different Events */
+        .dialogue-event {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(255, 165, 0, 0.1));
+            border: 2px solid rgba(255, 215, 0, 0.3);
+        }
+
+        .battle-event {
+            background: linear-gradient(135deg, rgba(255, 107, 107, 0.1), rgba(220, 20, 60, 0.1));
+            border: 2px solid rgba(255, 107, 107, 0.3);
+        }
+
+        .capture-event {
+            background: linear-gradient(135deg, rgba(128, 0, 128, 0.1), rgba(75, 0, 130, 0.1));
+            border: 2px solid rgba(128, 0, 128, 0.3);
+        }
+
+        .court-event {
+            background: linear-gradient(135deg, rgba(255, 140, 0, 0.1), rgba(255, 69, 0, 0.1));
+            border: 2px solid rgba(255, 140, 0, 0.3);
+        }
+
+        .fire-event {
+            background: linear-gradient(135deg, rgba(255, 0, 0, 0.1), rgba(255, 99, 71, 0.1));
+            border: 2px solid rgba(255, 0, 0, 0.3);
+        }
+
+        .journey-event {
+            background: linear-gradient(135deg, rgba(70, 130, 180, 0.1), rgba(135, 206, 235, 0.1));
+            border: 2px solid rgba(70, 130, 180, 0.3);
+        }
+
+        .message-event {
+            background: linear-gradient(135deg, rgba(50, 205, 50, 0.1), rgba(144, 238, 144, 0.1));
+            border: 2px solid rgba(50, 205, 50, 0.3);
+        }
+
+        /* Poetic Verse */
+        .verse {
+            background: rgba(255, 255, 255, 0.1);
+            border-left: 4px solid #ff6b6b;
+            padding: 20px;
+            margin: 30px auto;
+            font-style: italic;
+            font-size: 18px;
+            line-height: 1.8;
+            border-radius: 0 15px 15px 0;
+            max-width: 600px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+
+        /* Completion Section */
+        .completion-section {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            border-radius: 25px;
+            padding: 40px;
+            margin-top: 50px;
+            text-align: center;
+            border: 2px solid rgba(255, 215, 0, 0.5);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .completion-title {
+            font-size: 32px;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .completion-text {
+            font-size: 18px;
+            color: #2c3e50;
+            line-height: 1.6;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-bar {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .kanda-title {
+                font-size: 36px;
+            }
+
+            .timeline-line {
+                left: 30px;
+            }
+
+            .timeline-item {
+                flex-direction: row !important;
+                margin-left: 60px;
+            }
+
+            .timeline-content {
+                width: calc(100% - 60px);
+            }
+
+            .timeline-dot {
+                left: 30px;
+            }
+        }
+
+        /* Animation for timeline items */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .timeline-item {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .timeline-item:nth-child(1) { animation-delay: 0.1s; }
+        .timeline-item:nth-child(2) { animation-delay: 0.2s; }
+        .timeline-item:nth-child(3) { animation-delay: 0.3s; }
+        .timeline-item:nth-child(4) { animation-delay: 0.4s; }
+        .timeline-item:nth-child(5) { animation-delay: 0.5s; }
+        .timeline-item:nth-child(6) { animation-delay: 0.6s; }
+        .timeline-item:nth-child(7) { animation-delay: 0.7s; }
+        .timeline-item:nth-child(8) { animation-delay: 0.8s; }    
         * {
             margin: 0;
             padding: 0;
@@ -559,5 +897,209 @@
         <div class="footer">
             జై హనుమాన్! జై శ్రీ రామ్!
         </div>
-     </section>   
+     </section> 
+            <div class="main-content">
+            <!-- Header -->
+
+            <!-- Poetic Introduction -->
+            <div class="verse">
+                "సీతా రాముల ప్రేమ కథలో, హనుమంతుడు వీర గాథ<br>
+                లంకలోని రాక్షస రాజ్యంలో, ధైర్యంతో సేవ నిర్వహణ"
+            </div>
+
+            <!-- Journey Timeline -->
+            <div class="journey-timeline">
+                <div class="timeline-line"></div>
+
+                <!-- 1. Sita Hanuman Dialogue -->
+                <div class="timeline-item">
+                    <div class="timeline-content dialogue-event">
+                        <div class="content-title">
+                            <div class="content-icon">🗣️</div>
+                            సీత హనుమంతుడు సంవాదం
+                        </div>
+                        <div class="content-description">
+                            అశోక వనంలో సీతమ్మను కనుగొన్న హనుమంతుడు తన గుర్తింపు కోసం శ్రీరాముని ఇచ్చిన ఉంగరాన్ని చూపించి, సీతమ్మ నుండి తన ఆభరణాలను, శ్రీరాముడికి సందేశాన్ని అందుకున్నాడు.
+                        </div>
+                    </div>
+                    <div class="timeline-dot">1</div>
+                </div>
+
+                <!-- 2. Battle with Akshakumara -->
+                <div class="timeline-item">
+                    <div class="timeline-content battle-event">
+                        <div class="content-title">
+                            <div class="content-icon">⚔️</div>
+                            అక్షకుమారుడితో యుద్ధం
+                        </div>
+                        <div class="content-description">
+                            రావణ కుమారుడైన అక్షకుమారుడు రాక్షసుల సేనతో హనుమంతుడిని ఎదుర్కొనేందుకు వచ్చాడు. తీవ్రమైన యుద్ధంలో హనుమంతుడు అక్షకుమారుడిని వధించి తన పరాక్రమాన్ని చాటాడు.
+                        </div>
+                    </div>
+                    <div class="timeline-dot">2</div>
+                </div>
+
+                <!-- 3. Battle with Meghanaada -->
+                <div class="timeline-item">
+                    <div class="timeline-content battle-event">
+                        <div class="content-title">
+                            <div class="content-icon">🏹</div>
+                            మేఘనాదుడితో యుద్ధం
+                        </div>
+                        <div class="content-description">
+                            రావణ పుత్రుడైన మేఘనాదుడు (ఇంద్రజిత్) హనుమంతుడితో భీకర యుద్ధం చేశాడు. ఇతడు మాయా యుద్ధంలో నిపుణుడు కావడంతో హనుమంతుడికి తీవ్ర సవాలు తెచ్చిపెట్టాడు.
+                        </div>
+                    </div>
+                    <div class="timeline-dot">3</div>
+                </div>
+
+                <!-- 4. Hanuman's Capture -->
+                <div class="timeline-item">
+                    <div class="timeline-content capture-event">
+                        <div class="content-title">
+                            <div class="content-icon">🔗</div>
+                            హనుమంతుడు బంధనం
+                        </div>
+                        <div class="content-description">
+                            మేఘనాదుడు బ్రహ్మాస్త్రాన్ని ప్రయోగించి హనుమంతుడిని బంధించాడు. బ్రహ్మా దేవుని ఆజ్ఞను గౌరవించిన హనుమంతుడు స్వేచ్ఛగా బంధనలను అంగీకరించాడు.
+                        </div>
+                    </div>
+                    <div class="timeline-dot">4</div>
+                </div>
+
+                <!-- 5. Hanuman in Ravana's Court -->
+                <div class="timeline-item">
+                    <div class="timeline-content court-event">
+                        <div class="content-title">
+                            <div class="content-icon">👑</div>
+                            రావణ సభలో హనుమంతుడు
+                        </div>
+                        <div class="content-description">
+                            బంధితుడైన హనుమంతుడిని రావణ సభకు తీసుకువచ్చారు. అక్కడ హనుమంతుడు రావణుడికి శ్రీరాముని సందేశాన్ని అందించి, సీతను వదిలిపెట్టమని హెచ్చరించాడు.
+                        </div>
+                    </div>
+                    <div class="timeline-dot">5</div>
+                </div>
+
+                <!-- 6. Lanka Dahana -->
+                <div class="timeline-item">
+                    <div class="timeline-content fire-event">
+                        <div class="content-title">
+                            <div class="content-icon">🔥</div>
+                            హనుమంతుడు లంక దహనం
+                        </div>
+                        <div class="content-description">
+                            రాక్షసులు హనుమంతుడి తోకను వేలికించడంతో, అతడు తన తోకతో మొత్తం లంకాపురిని తగులబెట్టాడు. సీతమ్మ ఉన్న అశోకవనం మాత్రం కాపాడాడు.
+                        </div>
+                    </div>
+                    <div class="timeline-dot">6</div>
+                </div>
+
+                <!-- 7. Return Journey -->
+                <div class="timeline-item">
+                    <div class="timeline-content journey-event">
+                        <div class="content-title">
+                            <div class="content-icon">🌊</div>
+                            సముద్రం దాటి తిరుగు ప్రయాణం
+                        </div>
+                        <div class="content-description">
+                            లంకను దహనం చేసిన తర్వాత హనుమంతుడు సముద్రాన్ని దాటి తిరిగి కిష్కిందకు చేరుకుని, అంగదుడు మొదలైన వానర సేనకు తన విజయవార్తను తెలియజేశాడు.
+                        </div>
+                    </div>
+                    <div class="timeline-dot">7</div>
+                </div>
+
+                <!-- 8. Message to Rama -->
+                <div class="timeline-item">
+                    <div class="timeline-content message-event">
+                        <div class="content-title">
+                            <div class="content-icon">📜</div>
+                            రాముడికి సీత వార్త చెప్పడం
+                        </div>
+                        <div class="content-description">
+                            హనుమంతుడు శ్రీరాముడి దగ్గరకు చేరుకుని, సీతమ్మ యొక్క క్షేమ సమాచారం, ఆమె ఇచ్చిన ఆభరణాలు, సందేశాలు అందించి లంకలో జరిగిన సమస్త వృత్తాంతాన్ని వివరించాడు.
+                        </div>
+                    </div>
+                    <div class="timeline-dot">8</div>
+                </div>
+            </div>
+
+            <!-- Completion Section -->
+            <div class="completion-section">
+                <h2 class="completion-title">సుందరకాండం సమాప్తి</h2>
+                <p class="completion-text">
+                    ఈ విధంగా హనుమంతుడి వీరోచిత కార్యాలతో సుందరకాండం పూర్తి అవుతుంది. 
+                    హనుమంతుడి లంకా ప్రవేశం నుండి శ్రీరాముడికి సీతా వార్త చెప్పడం వరకు ఉన్న 
+                    ఈ అధ్యాయం భక్తి, వీరత్వం, మరియు సేవా భావన యొక్క అద్భుత ఉదాహరణ.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Add interactive hover effects
+        document.addEventListener('DOMContentLoaded', function() {
+            const timelineItems = document.querySelectorAll('.timeline-content');
+            
+            timelineItems.forEach(item => {
+                item.addEventListener('mouseenter', function() {
+                    this.style.transform = 'scale(1.05) rotate(1deg)';
+                });
+                
+                item.addEventListener('mouseleave', function() {
+                    this.style.transform = 'scale(1) rotate(0deg)';
+                });
+            });
+
+            // Add click interaction for more details
+            timelineItems.forEach((item, index) => {
+                item.addEventListener('click', function() {
+                    const title = this.querySelector('.content-title').textContent.trim();
+                    const description = this.querySelector('.content-description').textContent.trim();
+                    
+                    // Create a simple modal effect
+                    const modal = document.createElement('div');
+                    modal.style.cssText = `
+                        position: fixed;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        background: rgba(0,0,0,0.8);
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        z-index: 1000;
+                        cursor: pointer;
+                    `;
+                    
+                    const modalContent = document.createElement('div');
+                    modalContent.style.cssText = `
+                        background: rgba(255,255,255,0.95);
+                        backdrop-filter: blur(20px);
+                        padding: 40px;
+                        border-radius: 20px;
+                        max-width: 600px;
+                        margin: 20px;
+                        box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+                    `;
+                    
+                    modalContent.innerHTML = `
+                        <h3 style="color: #2c3e50; margin-bottom: 20px; font-size: 24px;">${title}</h3>
+                        <p style="color: #34495e; line-height: 1.8; font-size: 16px;">${description}</p>
+                        <p style="margin-top: 20px; text-align: center; color: #7f8c8d; font-size: 14px;">
+                            (క్లిక్ చేసి మూసివేయండి)
+                        </p>
+                    `;
+                    
+                    modal.appendChild(modalContent);
+                    document.body.appendChild(modal);
+                    
+                    modal.addEventListener('click', function() {
+                        document.body.removeChild(modal);
+                    });
+                });
+            });
+        });
+    </script>        
                     
