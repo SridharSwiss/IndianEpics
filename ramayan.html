@@ -497,60 +497,57 @@
         </main>
     </div>
 
-    <script>
-        // Add smooth scrolling and interactive elements
-        document.addEventListener('DOMContentLoaded', function() {
-            // Character cards interaction
-            const characterCards = document.querySelectorAll('.character-card');
-            characterCards.forEach(card => {
-                card.addEventListener('click', function() {
-                    this.style.transform = 'scale(1.1)';
-                    setTimeout(() => {
-                        this.style.transform = 'scale(1.05)';
-                    }, 200);
-                });
-            });
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Character cards interaction
+    const characterCards = document.querySelectorAll('.character-card');
+    characterCards.forEach(card => {
+        card.addEventListener('click', function() {
+            this.style.transform = 'scale(1.1)';
+            setTimeout(() => {
+                this.style.transform = 'scale(1.05)';
+            }, 200);
+        });
+    });
 
-            // Timeline animation on scroll
-            const observerOptions = {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
-            };
+    // Timeline animation on scroll
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
 
-            const observer = new IntersectionObserver(function(entries) {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
-                    }
-                });
-            }, observerOptions);
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, observerOptions);
 
-            // Observe all story sections
-            const storySections = document.querySelectorAll('.story-section');
-            storySections.forEach(section => {
-                section.style.opacity = '0';
-                section.style.transform = 'translateY(30px)';
-                section.style.transition = 'all 0.6s ease';
-                observer.observe(section);
-            });
+    // Observe all story sections
+    const storySections = document.querySelectorAll('.story-section');
+    storySections.forEach(section => {
+        section.style.opacity = '0';
+        section.style.transform = 'translateY(30px)';
+        section.style.transition = 'all 0.6s ease';
+        observer.observe(section);
+    });
 
-            // Navigation link highlighting
-            const navLinks = document.querySelectorAll('.nav-link');
-            navLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    // Allow page navigation if href is set
-                    if (this.getAttribute('href') === '#') {
-                        e.preventDefault();
-                        navLinks.forEach(l => l.classList.remove('active'));
-                        this.classList.add('active');
-                    }
-                });
-            });
-         document.addEventListener('DOMContentLoaded', function() {
-    // ...your other code...
+    // Navigation link highlighting
+    const navLinksAll = document.querySelectorAll('.nav-link');
+    navLinksAll.forEach(link => {
+        link.addEventListener('click', function(e) {
+            // Allow page navigation if href is set
+            if (this.getAttribute('href') === '#') {
+                e.preventDefault();
+                navLinksAll.forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+            }
+        });
+    });
 
-    // Hamburger menu toggle (fixed)
+    // Hamburger menu toggle (this is the important part)
     const navToggle = document.querySelector('.nav-toggle');
     const navLinks = document.querySelector('.nav-links');
     if (navToggle && navLinks) {
@@ -558,10 +555,7 @@
             navLinks.classList.toggle('show');
         });
     }
-});   
-        });
-    // Hamburger menu toggle
-        
-    </script>
+});
+</script>
 </body>
 </html>
