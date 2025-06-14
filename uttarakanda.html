@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>రామాయణం - ఉత్తరకాండ</title>
+    <style>
+      @media (max-width: 600px) {
+      body {
+    transform: scale(0.5);
+    transform-origin: top left;
+    width: 200vw; /* Adjust width since scaling shrinks content */
+    height: 200vh;
+    overflow-x: auto;
+      }
+    }
+    </style>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Telugu:wght@300;400;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Noto Sans Telugu', sans-serif;
+            background: linear-gradient(135deg, #ff9a56, #ff6b6b, #4ecdc4, #45b7d1);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            min-height: 100vh;
+        }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Navigation Bar */
+        .nav-bar {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 15px 30px;
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .nav-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #2c3e50;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .nav-link {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            color: #2c3e50;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        
+        .nav-link:hover {
+            background: rgba(255, 255, 255, 0.4);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .nav-link.active {
+            background: rgba(255, 255, 255, 0.4);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Main Content */
+        .main-content {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border-radius: 30px;
+            padding: 40px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .kanda-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .kanda-title {
+            font-size: 48px;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.1);
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .kanda-subtitle {
+            font-size: 20px;
+            color: #34495e;
+            font-weight: 400;
+            font-style: italic;
+        }
+        
+        /* Story Sections */
+        .story-section {
+            margin-bottom: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .story-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .section-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .section-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            font-size: 24px;
+            color: white;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .section-title {
+            font-size: 28px;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        
+        .section-content {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #2c3e50;
+            text-align: justify;
+        }
+        
+        .character-name {
+            font-weight: 700;
+            color: #e74c3c;
+        }
+        
+        .highlight {
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 600;
+        }
+        
+        /* Poetic verses */
+        .verse {
+            background: rgba(255, 255, 255, 0.1);
+            border-left: 4px solid #ff6b6b;
+            padding: 20px;
+            margin: 20px 0;
+            font-style: italic;
+            font-size: 16px;
+            line-height: 1.6;
+            border-radius: 0 10px 10px 0;
+        }
+        
+        /* Special Sections */
+        .coronation-section {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(255, 165, 0, 0.1));
+            border: 2px solid rgba(255, 215, 0, 0.3);
+        }
+        
+        .rule-section {
+            background: linear-gradient(135deg, rgba(50, 205, 50, 0.1), rgba(144, 238, 144, 0.1));
+            border: 2px solid rgba(50, 205, 50, 0.3);
+        }
+        
+        .departure-section {
+            background: linear-gradient(135deg, rgba(138, 43, 226, 0.1), rgba(186, 85, 211, 0.1));
+            border: 2px solid rgba(138, 43, 226, 0.3);
+        }
+        
+        .conclusion {
+            background: linear-gradient(135deg, rgba(255, 20, 147, 0.1), rgba(255, 105, 180, 0.1));
+            border: 2px solid rgba(255, 20, 147, 0.3);
+        }
+        
+        .conclusion-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        /* Source Attribution */
+        .source-info {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 20px;
+            margin-top: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .source-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+        
+        .source-text {
+            font-size: 14px;
+            color: #34495e;
+            line-height: 1.6;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-bar {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .kanda-title {
+                font-size: 36px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Navigation Bar -->
+        <nav class="nav-bar">
+            <div class="nav-title">శ్రీమద్వాల్మీకి రామాయణం</div>
+            <div class="nav-links">
+                <a href="balakanda.html" class="nav-link">బాలకాండ</a>
+                <a href="ayodhyakanda.html" class="nav-link">అయోధ్యాకాండ</a>
+                <a href="aranyakanda.html" class="nav-link">అరణ్యకాండ</a>
+                <a href="kishkindhakanda.html" class="nav-link">కిష్కింధాకాండ</a>
+                <a href="sundarakanda.html" class="nav-link">సుందరకాండ</a>
+                <a href="yuddhakanda.html" class="nav-link">యుద్ధకాండ</a>
+                <a href="uttarakanda.html" class="nav-link active">ఉత్తరకాండ</a>
+                <a href="ramayan.html" class="nav-link">అన్ని పేజీలు</a>
+            </div>
+        </nav>
+
+        <main class="main-content">
+            <header class="kanda-header">
+                <h1 class="kanda-title">ఉత్తరకాండం</h1>
+                <p class="kanda-subtitle">వాల్మీకి రామాయణం - ఏడవ కాండ</p>
+            </header>
+
+            <section class="story-section coronation-section">
+                <div class="section-header">
+                    <div class="section-icon">👑</div>
+                    <h2 class="section-title">రామపట్టాభిషేకం</h2>
+                </div>
+                <div class="section-content">
+                    లంకా విజయం తరువాత <span class="character-name">రాముడు</span> అయోధ్య తిరిగి వచ్చాడు. <span class="character-name">భరతుడు</span> అన్న పాదుకలను తిరిగి అప్పగించి రాజ్యాన్ని అప్పగించాడు. <span class="highlight">వసిష్ఠ మహర్షి</span> మరియు ఇతర ముனులు, మంత్రులు, ప్రజల సమక్షంలో <span class="highlight">రామపట్టాభిషేకం</span> జరిగింది. అయోధ్య మహోత్సవాలతో వెలిగిపోయింది.
+                </div>
+            </section>
+
+            <section class="story-section rule-section">
+                <div class="section-header">
+                    <div class="section-icon">🏛️</div>
+                    <h2 class="section-title">రామరాజ్యం</h2>
+                </div>
+                <div class="section-content">
+                    రాముడి పాలనలో <span class="highlight">రామరాజ్యం</span> స్థాపనైంది. ప్రజలందరూ సుఖంగా జీవించారు. దేశంలో వర్షాలు సమయానుకూలంగా కురిశాయి, పంటలు బాగా వచ్చాయి. <span class="highlight">న్యాయం, ధర్మం, శాంతి</span> ప్రబలింపజేశాయి. రాముడు ప్రజల కల్యాణం కోసం అనేక కార్యక్రమాలు చేపట్టాడు. అశ్వమేధ యాగం చేసి రాజర్షి అయ్యాడు.
+                </div>
+            </section>
+
+            <section class="story-section">
+                <div class="section-header">
+                    <div class="section-icon">👶</div>
+                    <h2 class="section-title">లవ కుశుల జన్మ</h2>
+                </div>
+                <div class="section-content">
+                    <span class="character-name">సీత</span> గర్భవతిగా ఉండగా, ప్రజల సందేహాలు వల్ల రాముడు బాధపడి సీతను అడవికి పంపించాడు. <span class="character-name">వాల్మీకి మహర్షి</span> ఆశ్రమంలో సీత <span class="highlight">లవ కుశులను</span> కన్నింది. వారు వాల్మీకి ఆశ్రమంలోనే పెరిగారు మరియు రామాయణ కావ్యాన్ని నేర్చుకున్నారు.
+                </div>
+            </section>
+
+            <section class="story-section">
+                <div class="section-header">
+                    <div class="section-icon">🎭</div>
+                    <h2 class="section-title">అశ్వమేధ యాగం</h2>
+                </div>
+                <div class="section-content">
+                    రాముడు <span class="highlight">అశ్వమేధ యాగం</span> చేసాడు. యాగాశ్వం అడవిలో తిరుగుతుండగా <span class="character-name">లవ కుశులు</span> దానిని పట్టుకున్నారు. వారు రామసేనతో యుద్ధం చేసి గెలిచారు. రాముడు యుద్ధరంగానికి వచ్చి వారిని చూసి ఆశ్చర్యపోయాడు. <span class="character-name">వాల్మీకి మహర్షి</span> వారు రాముని కుమారులని వెల్లడించారు.
+                </div>
+            </section>
+
+            <section class="story-section">
+                <div class="section-header">
+                    <div class="section-icon">🎵</div>
+                    <h2 class="section-title">రామాయణ గానం</h2>
+                </div>
+                <div class="section-content">
+                    <span class="character-name">లవ కుశులు</span> రాజ సభలో <span class="highlight">రామాయణ కావ్యాన్ని</span> అందమైన స్వరంలో పాడారు. వారి గానం వింటూ రాముడు భావోద్వేగంతో నిండిపోయాడు. రామాయణ కథ వింటూ అందరూ కన్నీళ్లు పెట్టుకున్నారు. వాల్మీకి మహర్షి రచించిన ఈ కావ్యం ప్రపంచానికి తెలిసింది.
+                </div>
+            </section>
+
+            <section class="story-section">
+                <div class="section-header">
+                    <div class="section-icon">🌸</div>
+                    <h2 class="section-title">సీత భూప్రవేశం</h2>
+                </div>
+                <div class="section-content">
+                    <span class="character-name">సీత</span> తన పవిత్రతను నిరూపించడానికి <span class="character-name">భూమాతను</span> పిలిచింది. <span class="highlight">"నేను మనస్సు, మాట, కర్మలతో రాముడినే భావించినట్లయితే భూమాత నన్ను స్వీకరించు"</span> అని చెప్పగానే భూమి చీలిపోయి భూమాత సీతను తన వక్షస్థలంలోకి తీసుకుపోయింది. ఈ దృశ్యం చూసి రాముడు విలపించాడు.
+                </div>
+            </section>
+
+            <section class="story-section">
+                <div class="section-header">
+                    <div class="section-icon">⚔️</div>
+                    <h2 class="section-title">రావణ చరిత్ర</h2>
+                </div>
+                <div class="section-content">
+                    ఈ కాండంలో <span class="character-name">రావణుడి</span> పూర్వ చరిత్ర వివరించబడింది. <span class="character-name">పులక్స్తుడి</span> కుమారుడు రావణుడు ఎలా <span class="highlight">దశగ్రీవుడు</span> అయ్యాడు, అతని తపస్సు, బ్రహ్మ వరదానాలు, లంకను ఆక్రమించడం వంటి వివరాలు చెప్పబడ్డాయి. <span class="character-name">కుబేరుడితో</span> అతని శత్రుత్వం మరియు లంకపై ఆధిపత్యం గురించి వివరించబడింది.
+                </div>
+            </section>
+
+            <section class="story-section">
+                <div class="section-header">
+                    <div class="section-icon">🐒</div>
+                    <h2 class="section-title">హనుమద్గీత</h2>
+                </div>
+                <div class="section-content">
+                    <span class="character-name">హనుమంతుడు</span> రాముడికి తన <span class="highlight">అష్టసిద్ధులను</span> ప్రదర్శించాడు. అతను రాముడి దివ్య స్వరూపాన్ని గురించి, విష్ణు అవతారం గురించి గానం చేశాడు. హనుమంతుడి భక్తి మరియు జ్ఞానం చూసి రాముడు ప్రసన్నుడయ్యాడు. <span class="highlight">"కలియుగంలో నా కథ ఎక్కడ చెప్పబడితే అక్కడ నువ్వు ఉంటావు"</span> అని రాముడు వరం ఇచ్చాడు.
+                </div>
+            </section>
+
+            <section class="story-section departure-section">
+                <div class="section-header">
+                    <div class="section-icon">🚪</div>
+                    <h2 class="section-title">రామాయణ పూర్తి</h2>
+                </div>
+                <div class="section-content">
+                    రాముడు చాలా కాలం పాలించిన తరువాత, తన <span class="highlight">లీలలు</span> పూర్తయ్యాయని తెలుసుకున్నాడు. <span class="character-name">కాలదేవుడు</span> బ్రాహ్మణ వేషంలో వచ్చి రాముడిని పిలిచాడు. రాముడు తన దివ్య లోకానికి తిరిగి వెళ్లాలని నిర్ణయించుకున్నాడు. అతను <span class="character-name">భరత, లక్షమణ, శత్రుఘ్న</span>లతో కలిసి <span class="highlight">సరయూ నదిలో ప్రవేశించి</span> వైకుంఠానికి చేరుకున్నాడు.
+                </div>
+            </section>
+
+            <section class="story-section conclusion">
+                <div class="conclusion-title">ఉత్తరకాండ సారాంశం</div>
+                <div class="section-content">
+                    ఉత్తరకాండం మనకు <span class="highlight">ఆదర్శ పాలన, ధర్మ రాజ్యం, త్యాగం</span> మరియు <span class="highlight">భక్తి మహిమ</span> గురించి బోధిస్తుంది. రామరాజ్యం లౌకిక జీవితంలో ధర్మం ఎలా అమలు చేయాలో చూపిస్తుంది. సీత త్యాగం, హనుమంతుడి అనన్య భక్తి, మరియు రాముడి ఆదర్శ పాలన వంటి విషయాలు ఈ కాండంలో ప్రకాశిస్తాయి.
+
+                    <div class="verse">
+                        "యావత్ స్థాస్యంతి గిరయః సరితశ్చ మహీతలే<br>
+                        తావద్రామాయణకథా లోకేషు ప్రచరిష్యతి"<br>
+                        <br>
+                        "పర్వతాలు, నదులు ఉన్నంత కాలం<br>
+                        రామాయణ కథ లోకంలో నిలుస్తుంది"
+                    </div>
+
+                    ఉత్తరకాండంతో వాల్మీకి రామాయణం పూర్తి అవుతుంది. ఇది కేవలం కథ మాత్రమే కాకుండా, మానవ జీవితానికి మార్గదర్శకం.
+                </div>
+            </section>
+
+            <div class="source-info">
+                <div class="source-title">మూల గ్రంథ సమాచారం</div>
+                <div class="source-text">
+                    <strong>గ్రంథం:</strong> శ్రీమద్వాల్మీకి రామాయణం<br>
+                    <strong>రచయిత:</strong> మహర్షి వాల్మీకి<br>
+                    <strong>కాండ:</strong> ఉత్తరకాండ (ఏడవ కాండ)<br>
+                    <strong>రూపకల్పన:</strong> @2025 Sridahr Gande, Switzerland<br>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
