@@ -20,8 +20,23 @@
             animation: gradientShift 15s ease infinite;
             min-height: 100vh;
         }
+
+        @media (max-width: 480px) {
+    .main-content {
+        padding: 6px;
+    }
+    .kanda-title {
+        font-size: 24px;
+    }
+    .section-title {
+        font-size: 20px;
+    }
+    .section-content {
+        font-size: 15px;
+      }
+     }
         
-        @keyframes gradientShift {
+    @keyframes gradientShift {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
@@ -318,6 +333,66 @@
                 left: 20px;
             }
         }
+/* Hamburger styles */
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+    padding: 10px;
+    margin-left: 10px;
+}
+.nav-toggle-bar {
+    display: block;
+    width: 28px;
+    height: 4px;
+    background: #2c3e50;
+    border-radius: 2px;
+    transition: all 0.3s;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 8px;
+    }
+    .main-content {
+        padding: 16px;
+    }
+    .nav-bar {
+        flex-direction: row;
+        align-items: center;
+        padding: 10px 8px;
+        position: relative;
+    }
+    .nav-toggle {
+        display: flex;
+        z-index: 2;
+    }
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        left: 0;
+        background: rgba(255,255,255,0.95);
+        box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+        border-radius: 0 0 20px 20px;
+        padding: 15px 0;
+        transition: all 0.3s;
+    }
+    .nav-links.show {
+        display: flex;
+    }
+    .nav-link {
+        font-size: 18px;
+        padding: 12px 20px;
+        border-radius: 10px;
+        color: #2c3e50;
+    }
+}        
     </style>
 </head>
 <body>
@@ -325,6 +400,11 @@
         <!-- Navigation Bar -->
         <nav class="nav-bar">
             <div class="nav-title">శ్రీమద్వాల్మీకి రామాయణం</div>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+            <span class="nav-toggle-bar"></span>
+            <span class="nav-toggle-bar"></span>
+            <span class="nav-toggle-bar"></span>
+            </button>
             <div class="nav-links">
                 <a href="balakanda.html" class="nav-link">బాలకాండ</a>
                 <a href="ayodhyakanda.html" class="nav-link">అయోధ్యాకాండ</a>
@@ -468,6 +548,20 @@
                 });
             });
         });
+    // Hamburger menu toggle
+const navToggle = document.querySelector('.nav-toggle');
+const navLinks = document.querySelector('.nav-links');
+navToggle.addEventListener('click', function() {
+    navLinks.classList.toggle('show');
+});
+navLinks.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+        if (window.innerWidth <= 768) {
+            navLinks.classList.remove('show');
+        }
+    });
+});
+        
     </script>
 </body>
 </html>
