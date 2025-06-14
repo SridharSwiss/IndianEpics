@@ -547,16 +547,20 @@
                     }
                 });
             });
+         document.addEventListener('DOMContentLoaded', function() {
+    // ...your other code...
+
+    // Hamburger menu toggle (fixed)
+    const navToggle = document.querySelector('.nav-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    if (navToggle && navLinks) {
+        navToggle.addEventListener('click', function() {
+            navLinks.classList.toggle('show');
+        });
+    }
+});   
         });
     // Hamburger menu toggle
-const navToggle = document.querySelector('.nav-toggle');
-const navLinks = document.querySelector('.nav-links');
-navToggle.addEventListener('click', function() {
-    navLinks.classList.toggle('show');
-});
-document.querySelector('.nav-toggle').addEventListener('click', function() {
-    document.querySelector('.nav-links').classList.toggle('active');
-});;
         
     </script>
 </body>
