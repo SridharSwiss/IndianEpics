@@ -554,13 +554,9 @@ const navLinks = document.querySelector('.nav-links');
 navToggle.addEventListener('click', function() {
     navLinks.classList.toggle('show');
 });
-navLinks.querySelectorAll('.nav-link').forEach(link => {
-    link.addEventListener('click', () => {
-        if (window.innerWidth <= 768) {
-            navLinks.classList.remove('show');
-        }
-    });
-});
+document.querySelector('.nav-toggle').addEventListener('click', function() {
+    document.querySelector('.nav-links').classList.toggle('active');
+});;
         
     </script>
 </body>
