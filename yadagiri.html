@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yadagirigutta | Narasimha Avatar's Sacred Abode</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1e1e2e 0%, #2d1b4e 100%);
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(135deg, #ff6b35 0%, #ff8c42 50%, #ffd700 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '🦁';
+            position: absolute;
+            font-size: 300px;
+            opacity: 0.1;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-30px); }
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            animation: slideDown 1s ease-out;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            animation: slideUp 1s ease-out;
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            font-size: 2rem;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .section {
+            margin-bottom: 4rem;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease-out;
+        }
+
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            background: linear-gradient(90deg, #ff6b35, #ffd700);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(255, 107, 53, 0.3);
+        }
+
+        .icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .story-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 3rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(180deg, #ff6b35, #ffd700);
+        }
+
+        .timeline-item {
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '●';
+            position: absolute;
+            left: -3.5rem;
+            color: #ffd700;
+            font-size: 2rem;
+        }
+
+        .highlight {
+            background: linear-gradient(90deg, #ff6b35, #ff8c42);
+            padding: 0.2rem 0.6rem;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .quote {
+            border-left: 4px solid #ffd700;
+            padding-left: 1.5rem;
+            font-style: italic;
+            margin: 2rem 0;
+            opacity: 0.9;
+        }
+
+        .deity-card {
+            text-align: center;
+            background: linear-gradient(135deg, rgba(255,107,53,0.2), rgba(255,215,0,0.2));
+            border-radius: 20px;
+            padding: 2rem;
+            border: 2px solid rgba(255, 215, 0, 0.3);
+        }
+
+        .deity-emoji {
+            font-size: 5rem;
+            margin-bottom: 1rem;
+            display: inline-block;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .fun-fact {
+            background: linear-gradient(135deg, #ff6b35, #ff8c42);
+            padding: 1.5rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+            border-left: 5px solid #ffd700;
+        }
+
+        .fun-fact::before {
+            content: '✨ Fun Fact: ';
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: linear-gradient(90deg, #ff6b35, #ffd700);
+            color: #1e1e2e;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            margin-top: 2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.5);
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .hero p { font-size: 1.2rem; }
+            .section-title { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <h1>🦁 YADAGIRIGUTTA 🏔️</h1>
+        <p>Where the Lion-God Roars</p>
+        <div class="scroll-indicator">↓</div>
+    </div>
+
+    <div class="container">
+        <div class="section">
+            <h2 class="section-title">🌟 What's the Vibe?</h2>
+            <div class="card">
+                <p style="font-size: 1.2rem; line-height: 1.8;">
+                    Yadagirigutta (also called <span class="highlight">Yadaadri</span>) is a sacred hill shrine in Telangana, about 60km from Hyderabad. 
+                    It's one of the most ancient and powerful temples dedicated to Lord Narasimha—the half-lion, half-human avatar of Lord Vishnu. 
+                    This isn't just a temple; it's where divine energy literally vibes different! ⚡
+                </p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">🔥 The Narasimha Avatara: When Vishnu Said "Enough!"</h2>
+            <div class="deity-card">
+                <div class="deity-emoji">🦁👤</div>
+                <h3 style="font-size: 2rem; margin-bottom: 1rem;">Lord Narasimha</h3>
+                <p>The Ultimate Protector Avatar</p>
+            </div>
+
+            <div class="card" style="margin-top: 2rem;">
+                <h3 style="font-size: 1.8rem; margin-bottom: 1rem;">⚔️ The Backstory (Epic Level)</h3>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <h4 style="font-size: 1.5rem; color: #ffd700;">The Villain: Hiranyakashipu 👹</h4>
+                        <p style="margin-top: 0.5rem;">This demon king got crazy powers through intense meditation and became literally untouchable. He couldn't be killed by man or beast, inside or outside, day or night, on earth or in sky, with weapons or anything else. Basically, he thought he was invincible and demanded everyone worship HIM instead of God. Big mistake! 💀</p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <h4 style="font-size: 1.5rem; color: #ffd700;">The Hero: Prahlada 🙏</h4>
+                        <p style="margin-top: 0.5rem;">Plot twist: Hiranyakashipu's own son was a hardcore Vishnu devotee! Despite torture, poison, and being thrown off cliffs, young Prahlada kept his faith strong. His dad was NOT happy about this. 😤</p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <h4 style="font-size: 1.5rem; color: #ffd700;">The Ultimate Flex 💪</h4>
+                        <p style="margin-top: 0.5rem;">When Hiranyakashipu challenged Prahlada "If your god is everywhere, is he in this pillar?" and smashed it—BOOM! Out came Narasimha at twilight (neither day nor night), from the pillar (neither inside nor outside), placed the demon on his lap (neither earth nor sky), at the threshold (neither in nor out), and finished him with his claws (not a weapon). Loopholes? Demolished! 🔥</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="fun-fact">
+                Narasimha is considered the MOST FIERCE avatar of Vishnu. His rage was so intense after defeating evil that even the gods were scared to approach him. Only Prahlada could calm him down with pure devotion! 🦁💛
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">📜 The Sthala Puranam: Yadagirigutta's Origin Story</h2>
+            
+            <div class="card">
+                <div class="icon">🧘‍♂️</div>
+                <h3 style="font-size: 1.8rem; margin-bottom: 1rem;">The Sage Connection</h3>
+                <p style="font-size: 1.1rem; line-height: 1.8;">
+                    Once upon a time, a great sage named <span class="highlight">Yadarishi</span> (also called Yadava Rishi) was doing intense meditation on these hills. 
+                    He was such a devoted worshipper of Lord Narasimha that the Lord himself decided to appear before him! 
+                    The sage prayed that Narasimha stay on these hills forever to bless devotees—and the Lord agreed! 
+                    That's why it's called <span class="highlight">Yadagiri</span> (Yada's hill). 🏔️
+                </p>
+            </div>
+
+            <div class="story-grid">
+                <div class="card">
+                    <div class="icon">🗿</div>
+                    <h4 style="font-size: 1.5rem; margin-bottom: 1rem;">The Five Narasimhas</h4>
+                    <p>The temple has FIVE different forms of Narasimha carved into the rock caves:</p>
+                    <ul style="margin-top: 1rem; margin-left: 1.5rem; line-height: 2;">
+                        <li>Jwala Narasimha (Flaming form) 🔥</li>
+                        <li>Yogananda Narasimha (Meditative form) 🧘</li>
+                        <li>Gandabherunda Narasimha (Bird-form) 🦅</li>
+                        <li>Ugra Narasimha (Fierce form) 😤</li>
+                        <li>Lakshmi Narasimha (With Goddess Lakshmi) 💑</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <div class="icon">⏰</div>
+                    <h4 style="font-size: 1.5rem; margin-bottom: 1rem;">Ancient AF</h4>
+                    <p>This temple dates back to the <span class="highlight">5th-6th century CE</span>! That's over 1,500 years old! The caves and rock-cut sculptures show it was a major pilgrimage site even back then. Kings like the Chalukyas and Yadavas patronized this temple. 👑</p>
+                </div>
+
+                <div class="card">
+                    <div class="icon">✨</div>
+                    <h4 style="font-size: 1.5rem; margin-bottom: 1rem;">The Magical Lake</h4>
+                    <p>There's a sacred lake called <span class="highlight">Sarovaram</span> near the temple where sages supposedly bathed. Legend says the water has healing properties and can purify you spiritually. Many devotees take a dip before entering the temple! 💧</p>
+                </div>
+
+                <div class="card">
+                    <div class="icon">🌙</div>
+                    <h4 style="font-size: 1.5rem; margin-bottom: 1rem;">Cosmic Connection</h4>
+                    <p>According to mythology, even celestial beings like Indra (king of gods) and other devas visited this place to worship Narasimha. The place is said to have cosmic vibrations that attract spiritual seekers! 🌌</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">🙌 Why Devotees Love It</h2>
+            
+            <div class="card">
+                <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 1rem;">
+                    Yadagirigutta is known as one of the <span class="highlight">Nava Narasimha Kshetras</span> (Nine sacred Narasimha temples). 
+                    Devotees believe that praying here can:
+                </p>
+                <ul style="margin-left: 2rem; line-height: 2; font-size: 1.1rem;">
+                    <li>🛡️ Protect you from enemies and negative energies</li>
+                    <li>💪 Give you courage to face life's battles</li>
+                    <li>🧘 Help with mental peace and spiritual growth</li>
+                    <li>👨‍👩‍👧‍👦 Bless families with prosperity and harmony</li>
+                    <li>⚖️ Deliver justice and remove obstacles</li>
+                </ul>
+            </div>
+
+            <div class="quote">
+                "Where there is dharma (righteousness), there is Narasimha. Where there is Narasimha, evil cannot survive." 
+                - Ancient Sanskrit verse
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">🎯 The Modern Scene</h2>
+            <div class="card">
+                <p style="font-size: 1.1rem; line-height: 1.8;">
+                    Today, Yadagirigutta has been massively developed with modern facilities while keeping its spiritual essence intact. 
+                    The Telangana government has transformed it into a world-class pilgrimage destination with improved infrastructure, 
+                    better amenities, and stunning architecture. Every year, lakhs of devotees visit, especially during festivals like 
+                    <span class="highlight">Narasimha Jayanti</span> and <span class="highlight">Brahmotsavam</span>! 🎊
+                </p>
+            </div>
+        </div>
+
+        <div class="section" style="text-align: center;">
+            <h2 class="section-title">✨ The Takeaway</h2>
+            <div class="card">
+                <p style="font-size: 1.2rem; line-height: 2;">
+                    Yadagirigutta isn't just about mythology and history—it's about the timeless message that 
+                    <span class="highlight">good always triumphs over evil</span>, and that divine protection is always available 
+                    to those who have faith. Whether you're religious or just love history and culture, this place hits different! 🙏✨
+                </p>
+            </div>
+            <a href="#" class="cta-button" onclick="alert('Thanks for exploring Yadagirigutta with us! 🦁💛'); return false;">
+                Share This Story ✨
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // Intersection Observer for scroll animations
+        const sections = document.querySelectorAll('.section');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+
+        // Smooth scroll
+        document.querySelector('.scroll-indicator').addEventListener('click', () => {
+            window.scrollTo({
+                top: window.innerHeight,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+</body>
+</html>
